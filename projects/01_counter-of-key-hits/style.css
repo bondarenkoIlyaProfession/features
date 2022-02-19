@@ -1,0 +1,41 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: table;
+}
+
+.activity {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.activity::before {
+  content: "Hit Any Key On Your Keyboard";
+  position: absolute;
+  top: -1;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(10, 10, 10, 10, 10);
+}
+
+.result {
+  text-transform: uppercase;
+}
+
+.hits {
+  font-size: 5.75em;
+  font-weight: bold;
+}
