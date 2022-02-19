@@ -1,0 +1,128 @@
+:root {
+  --white: #fff;
+  --grey: #ccc;
+  --dark-smoky-white: #efefef;
+  --smoky-white: #f2f2f2;
+  --low-opacity-black: rgba(0, 0, 0, 0.15);
+  --mountain-meadow-green: #2ecc71;
+  --dark-grey: #878787;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  background-color: var(--smoky-white);
+}
+
+.container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  animation: show-toast 1s ease forwards;
+}
+
+.container.hide {
+  animation: hide-toast 1s ease forwards;
+}
+
+.container .toast {
+  background-color: var(--white);
+  padding: 20px 15px 20px 20px;
+  border-radius: 10px;
+  border-left: 5px solid var(--mountain-meadow-green);
+  box-shadow: 1px 7px 14px -5px var(--low-opacity-black);
+  width: 430px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .toast.offline {
+  border-color: var(--grey);
+}
+
+.toast .content {
+  display: flex;
+  align-items: center;
+}
+
+.content .icon {
+  font-size: 25px;
+  color: var(--white);
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  background-color: var(--mountain-meadow-green);
+}
+
+.toast.offline .content .icon {
+  background-color: var(--grey);
+}
+
+.content .details {
+  margin-left: 15px;
+}
+
+.details span {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.details p {
+  color: var(--dark-grey);
+}
+
+.toast .close-icon {
+  color: var(--dark-grey);
+  font-size: 23px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--smoky-white);
+  transition: all 0.3s ease;
+}
+
+.close-icon:hover {
+  background-color: var(--dark-smoky-white);
+}
+
+@keyframes show-toast {
+  0% {
+    transform: translateX(-100%);
+  }
+  40% {
+    transform: translateX(10%);
+  }
+  80%,
+  100% {
+    transform: translateX(20px);
+  }
+}
+
+@keyframes hide-toast {
+  0% {
+    transform: translateX(20px);
+  }
+  40% {
+    transform: translateX(10%);
+  }
+  80%,
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+}
